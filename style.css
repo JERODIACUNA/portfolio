@@ -1,0 +1,349 @@
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #f0f0f0;
+  background-color: #121212;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Header */
+header {
+  background: #000000;
+  color: #fff;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+ 
+}
+
+header h1 {
+  margin-left: auto; /* Pushes the h1 to the right */
+  font-size: 2rem;
+}
+
+header h1 span {
+  color: #00b0ff;
+}
+
+header nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+header nav a {
+  color: #00b0ff;
+  text-decoration: none;
+}
+
+/* Hero Section */
+#hero {
+  background: #181818;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+#hero h2 {
+  font-size: 2rem;
+}
+
+#hero h2 span {
+  color: #00b0ff;
+}
+
+#hero p {
+  margin-top: 0.5rem;
+  color: #ccc;
+}
+
+/* Section Layout */
+section {
+  padding: 3rem 0;
+  position: relative;
+}
+
+/* Blue separator line between sections */
+#about::before {
+
+  content: "";
+  display: block;
+  height: 2px;
+  background: #00b0ff;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Projects */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: #1f1f1f;
+  padding: 1.5rem;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: #ddd;
+}
+
+/* Contact */
+#contact a {
+  color: #00b0ff;
+  text-decoration: none;
+}
+
+/* Footer */
+footer {
+  background: #1e1e1e;
+  color: #aaa;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .project-card {
+    text-align: center;
+  }
+}
+
+.social-links {
+  margin-top: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-links a img {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) invert(1); /* make all icons white on dark background */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-links a img:hover {
+  transform: scale(1.1);
+  filter: brightness(0) saturate(100%) invert(41%) sepia(98%) saturate(1296%) hue-rotate(179deg) brightness(101%) contrast(101%);
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+/* Hide the menu by default */
+#nav-links.hidden {
+  display: none;
+}
+
+/* Hamburger to top-left */
+.hamburger {
+  font-size: 2rem;
+  color: #00b0ff;
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  left: 1rem;
+  top: 1.5rem;
+  z-index: 1001;
+   width: 30px;
+  height: 25px;
+  position: absolute;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: #00b0ff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Transform into "X" */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+
+/* Navigation list (hidden off-screen left) */
+#nav-links {
+  position: fixed;
+  top: 0;
+  left: -220px; /* start hidden */
+  background: #1a1a1a;
+  border-right: 2px solid #00b0ff;
+  width: 200px;
+  height: 100%;
+  padding: 4rem 1rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 1000;
+  transition: left 0.3s ease-in-out;
+}
+
+/* When shown, slide in */
+#nav-links.show {
+  left: 0;
+}
+
+/* Hide with class only */
+#nav-links.hidden {
+  left: -220px;
+  transition: left 0.3s ease-in-out;
+}
+
+#nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+
+
+section.active {
+  outline: 2px solid #00b0ff;
+  outline-offset: 10px;
+  background-color: #1a1a1a;
+  transition: background 0.3s ease, outline 0.3s ease;
+}
+
+@keyframes flashHighlight {
+  0% {
+    background-color: #1a1a1a;
+  }
+  50% {
+    background-color: #002b4f;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+section.flash {
+  animation: flashHighlight 1.2s ease;
+}
+
+/* FOR PROJECTS CSS*/
+.project-card {
+  background: #1f1f1f;
+  padding: 1.5rem;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: #ddd;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  border: 1px solid #00b0ff;
+  box-shadow: 0 0 12px #00b0ff44;
+}
+
+/* Modal Base Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background-color: #1e1e1e;
+  color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #00b0ff;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content h3 {
+  color: #00b0ff;
+}
+
+
+
+.close:hover {
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Skills */
+.skills-list {
+  
+  padding-left: 2rem;
+  color: #ddd;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.skills-list li::marker {
+  color: #00b0ff;
+}

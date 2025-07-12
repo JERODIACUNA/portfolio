@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jero Diacuna | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Jero Diacuna | <span>Portfolio</span></h1>
+      <nav>
+  <div class="hamburger" id="hamburger">  <span></span>
+  <span></span>
+  <span></span></div>
+  <ul id="nav-links" class="hidden">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+    </div>
+  </header>
+
+  <section id="hero">
+    <div class="container">
+      <h2>Hello, I'm <span>Jero Diacuna</span></h2>
+      <p>A passionate web developer creating awesome websites.</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I’m a fresh graduate of West Visayas State University, skilled in Web Development. I love solving problems and building responsive and interactive websites.</p>
+    </div>
+  </section>
+<section id="skills">
+  <div class="container">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>Programming Languages: Dart, Python, and C++ </li>
+      <li>Web Development: HTML, CSS, and JavaScript</li>
+      <li>Attention to Detail: Proven ability to produce high-quality, error-free work.</li>
+      <li>Team Collaboration: Providing insights once familiar with team dynamics.</li>
+      
+    </ul>
+  </div>
+</section>
+
+
+ <section id="projects">
+  <div class="container">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card" data-modal="modal1">
+        <h3>Guardian Link</h3>
+        <p>Location Tracking and Emergency Support for Persons with Dementia</p>
+      </div>
+      <div class="project-card" data-modal="modal2">
+        <h3>Warframe Webpage<em>(3rd Year Project)</em></h3>
+        <p> A webpage about the game Warframe and my experiences playing it.</p>
+      </div>
+      <div class="project-card" data-modal="modal3">
+        <h3>Project 3</h3>
+        <p>A short description of your project.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal" id="modal1">
+    <div class="modal-content">
+      
+      <h3>Guardian Link</h3>
+      <p>Guardian Link, a mobile-based location tracking and emergency support system
+for individuals with dementia and their caregivers. </p>
+<p>Video demonstration of the app and the device:</p>
+<video width="100%" controls>
+  <source src="assets/thesis_demo_app.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+    </div>
+  </div>
+
+  <div class="modal" id="modal2">
+    <div class="modal-content">
+      
+      <h3>Warframe Webpage</h3>
+      <p>This project showcases a Warframe-themed webpage UI.</p>
+      <p><em> Make sure your display resolution is 1920x1080. I didn't implement responsive design on this project</em></p>
+      <a href="https://jerodiacuna.github.io/CIT236-Diacuna/" target="_blank">View on GitHub</a>
+    </div>
+  </div>
+
+  <div class="modal" id="modal3">
+    <div class="modal-content">
+      
+      <h3>Project 3</h3>
+      <p>More information about Project 3 goes here.</p>
+    </div>
+  </div>
+</section>
+
+
+
+ <section id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <p>Email me at: <a href="mailto:jerodiacuna@gmail.com">jerodiacuna@gmail.com</a></p>
+
+    <div class="social-links">
+  <a href="https://github.com/JERODIACUNA" target="_blank" aria-label="GitHub">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Logo" />
+  </a>
+  <a href="https://www.linkedin.com/in/jero-diacuna-3300a425a/ " target="_blank" aria-label="LinkedIn">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Logo" />
+  </a>
+  <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter Logo" />
+  </a>
+  <a href="https://www.facebook.com/jero.diacuna.7" target="_blank" aria-label="Facebook">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook Logo" />
+  </a>
+</div>
+
+  </div>
+</section>
+
+
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </div>
+  </footer>
+ <script>
+  const navLinks = document.querySelectorAll("header nav a");
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      const hash = link.getAttribute("href");
+      const target = document.querySelector(hash);
+
+      if (target) {
+        // Remove class if it's still present from a previous click
+        target.classList.remove("flash");
+
+        // Trigger reflow so animation can restart
+        void target.offsetWidth;
+
+        // Add the flash class
+        target.classList.add("flash");
+
+        // Remove it again after the animation completes
+        setTimeout(() => {
+          target.classList.remove("flash");
+        }, 1200);
+      }
+    });
+  });
+</script>
+
+<script>
+  const projectCards = document.querySelectorAll(".project-card");
+  const modals = document.querySelectorAll(".modal");
+
+  projectCards.forEach(card => {
+    card.addEventListener("click", () => {
+      const modalId = card.getAttribute("data-modal");
+      const modal = document.getElementById(modalId);
+      modal.style.display = "block";
+    });
+  });
+
+  window.addEventListener("click", event => {
+    modals.forEach(modal => {
+      if (event.target === modal) {
+        // Stop and reset any local <video> elements
+        const videos = modal.querySelectorAll("video");
+        videos.forEach(video => {
+          video.pause();
+          video.currentTime = 0;
+        });
+
+        modal.style.display = "none";
+      }
+    });
+  });
+</script>
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-links");
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+    navMenu.classList.toggle("hidden");
+    hamburger.classList.toggle("active"); // Toggle "X" animation
+  });
+
+  // Close menu when a link is clicked
+  navMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("show");
+      navMenu.classList.add("hidden");
+      hamburger.classList.remove("active"); // Reset hamburger icon
+    });
+  });
+</script>
+
+
+
+
+</body>
+</html>
