@@ -25,12 +25,31 @@
     </div>
   </header>
 
-  <section id="hero">
-    <div class="container">
-      <h2>Hello, I'm <span>Jero Diacuna</span></h2>
-      <p>A passionate web developer creating awesome websites.</p>
-    </div>
-  </section>
+<section id="hero">
+  <div id="particles-js"></div> <!-- Particle background -->
+  <div class="container">
+   <h2>Hello, I'm <span class="typed-text"></span></h2>
+
+    <p>A passionate web developer creating awesome websites.</p>
+  </div>
+</section>
+
+
+<!-- Floating Circles Background - Appears behind everything except Hero -->
+<div class="area" id="background-circles">
+  <ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
 
   <section id="about">
     <div class="container">
@@ -135,7 +154,7 @@ for individuals with dementia and their caregivers. </p>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Your Name. All rights reserved.</p>
+      <p>&copy; 2025 Diacuna. All rights reserved.</p>
     </div>
   </footer>
  <script>
@@ -213,7 +232,82 @@ for individuals with dementia and their caregivers. </p>
   });
 </script>
 
+<script>
+  const text = "Jero Diacuna";
+  const typedSpan = document.querySelector(".typed-text");
+  let index = 0;
 
+  function type() {
+    if (index < text.length) {
+      typedSpan.textContent += text.charAt(index);
+      index++;
+      setTimeout(type, 150); // Typing speed (ms)
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", type);
+</script>
+
+<!-- Load Particles.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  particlesJS('particles-js',
+    {
+      "particles": {
+        "number": {
+          "value": 50,
+          "density": {
+            "enable": true,
+            "value_area": 450
+          }
+        },
+        "color": { "value": "#00b0ff" },
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" },
+          "polygon": { "nb_sides": 5 }
+        },
+        "opacity": {
+          "value": 0.3,
+          "random": false
+        },
+        "size": {
+          "value": 5,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 1,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out"
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "repulse" },
+          "resize": true
+        },
+        
+        "modes": {
+          "repulse": { "distance": 50 },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    }
+  );
+</script>
 
 
 </body>
