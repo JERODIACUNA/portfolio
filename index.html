@@ -89,7 +89,7 @@
       </div>
      <div class="project-card" data-modal="modal3">
         <h3>Gainz</h3>
-        <p>A tracking web application that observe, track, and manage gym memberships.</p>
+        <p>A web application that observe, track, and manage gym memberships.</p>
       </div>
     </div>
   </div>
@@ -121,15 +121,40 @@ for individuals with dementia and their caregivers. </p>
   </div>
 
   <div class="modal" id="modal3">
-    <div class="modal-content">
-      
-      <h3>Gainz</h3>
-      <p>Developed a system to observe, track, and manage gym memberships. 
-      Emphasized data organization, user management, and monitoring features</p>
-       <p><em>Only the admin can manage users and view all data. You'll be redirected only in the login page.</em></p>
-      <a href="https://gainz-01.vercel.app/" target="_blank">View on Vercel</a>
-    </div>
+  <div class="modal-content">
+
+    <h3>Gainz</h3>
+    <p>
+      Developed a system to observe, track, and manage gym memberships.
+      Emphasized data organization, user management, and monitoring features.
+    </p>
+    <img 
+      src="assets/1.jpg" 
+      alt="Gainz Admin Dashboard" 
+      class="modal-image"
+    >
+    <img 
+      src="assets/2.png" 
+      alt="Gainz Admin Dashboard" 
+      class="modal-image"
+    >
+    <img 
+      src="assets/3.png" 
+      alt="Gainz Admin Dashboard" 
+      class="modal-image"
+    >
+    <p>
+      <em>
+        Only the admin can manage users and view all data.
+        You'll be redirected to the login page.
+      </em>
+    </p>
+
+    <a href="https://gainz-01.vercel.app/" target="_blank">View on Vercel</a>
+
   </div>
+</div>
+
 </section>
 
 
@@ -164,6 +189,14 @@ for individuals with dementia and their caregivers. </p>
       <p>&copy; 2025 Diacuna. All rights reserved.</p>
     </div>
   </footer>
+  <script>
+  document.querySelectorAll(".modal-image").forEach(img => {
+    img.addEventListener("click", () => {
+      img.classList.toggle("zoomed");
+    });
+  });
+</script>
+
  <script>
   const navLinks = document.querySelectorAll("header nav a");
 

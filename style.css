@@ -517,6 +517,22 @@ section.flash {
   color: #00b0ff;
 }
 
+.modal-image {
+  width: 100%;
+  border-radius: 8px;
+  margin: 1rem 0;
+  object-fit: cover;
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+/* Zoomed state */
+.modal-image.zoomed {
+  transform: scale(1.8);
+  cursor: zoom-out;
+  z-index: 1001;
+}
+
 
 
 .close:hover {
